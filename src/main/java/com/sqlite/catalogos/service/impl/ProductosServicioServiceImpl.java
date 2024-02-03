@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.ProductosServiciosEntity;
 import com.sqlite.catalogos.persistence.repository.ProductosServiciosRepository;
 import com.sqlite.catalogos.service.ProductosServiciosService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class ProductosServicioServiceImpl implements ProductosServiciosService {
         return productosServiciosRepository.findById(id);
     }
 
-    public List<ProductosServiciosEntity> findAll() {
-        return productosServiciosRepository.findAll();
+    public Page<ProductosServiciosEntity> findAll(Pageable pageable) {
+        return productosServiciosRepository.findAll(pageable);
     }
 
 }

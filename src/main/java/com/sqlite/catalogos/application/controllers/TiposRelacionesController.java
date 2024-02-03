@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.TiposRelacionesEntity;
 import com.sqlite.catalogos.service.TiposRelacionesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +25,8 @@ public class TiposRelacionesController {
     }
 
     @GetMapping("/all")
-    public List<TiposRelacionesEntity> findAll() {
-        return tiposRelacionesService.findAll();
+    public Page<TiposRelacionesEntity> findAll(Pageable pageable) {
+        return tiposRelacionesService.findAll(pageable);
     }
 
 }

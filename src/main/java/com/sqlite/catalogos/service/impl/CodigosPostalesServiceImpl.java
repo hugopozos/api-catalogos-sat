@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.CodigosPostalesEntity;
 import com.sqlite.catalogos.persistence.repository.CodigosPostalesRepository;
 import com.sqlite.catalogos.service.CodigosPostalesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +22,8 @@ public class CodigosPostalesServiceImpl implements CodigosPostalesService {
         return optional.orElse(null);
     }
 
-    public List<CodigosPostalesEntity> findAll() {
-        return codigosPostalesRepository.findAll();
+    @Override
+    public Page<CodigosPostalesEntity> findAll(Pageable pageable) {
+        return codigosPostalesRepository.findAll(pageable);
     }
 }

@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.repository.ColoniasRepository;
 import com.sqlite.catalogos.service.ColoniasService;
 import com.sqlite.catalogos.persistence.entity.ColoniasEntity;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,8 +22,8 @@ public class ColoniasServiceImpl implements ColoniasService {
         return optional.orElse(null);
     }
 
-    public List<ColoniasEntity> findAll() {
-        return coloniasRepository.findAll();
+    public Page<ColoniasEntity> findAll(Pageable pageable) {
+        return coloniasRepository.findAll(pageable);
     }
 
 }

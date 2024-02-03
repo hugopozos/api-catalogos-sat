@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.UsosCfdiEntity;
 import com.sqlite.catalogos.service.UsosCfdiService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +26,8 @@ public class UsosCfdiController {
     }
 
     @GetMapping("/all")
-    public List<UsosCfdiEntity> findAll() {
-        return usosCfdiService.findAll();
+    public Page<UsosCfdiEntity> findAll(Pageable pageable) {
+        return usosCfdiService.findAll(pageable);
     }
 
 }

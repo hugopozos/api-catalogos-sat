@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.ColoniasEntity;
 import com.sqlite.catalogos.service.ColoniasService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,7 @@ public class ColoniasController {
     }
 
     @GetMapping("/all")
-    public List<ColoniasEntity> findAll() {
-        return coloniasService.findAll();
+    public Page<ColoniasEntity> findAll(Pageable pageable) {
+        return coloniasService.findAll(pageable);
     }
 }

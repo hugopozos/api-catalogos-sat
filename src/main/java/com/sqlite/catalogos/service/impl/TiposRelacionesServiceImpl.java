@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.TiposRelacionesEntity;
 import com.sqlite.catalogos.persistence.repository.TiposRelacionesRepository;
 import com.sqlite.catalogos.service.TiposRelacionesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class TiposRelacionesServiceImpl implements TiposRelacionesService {
         return optional.orElse(null);
     }
 
-    public List<TiposRelacionesEntity> findAll() {
-        return tiposRelacionesRepository.findAll();
+    public Page<TiposRelacionesEntity> findAll(Pageable pageable) {
+        return tiposRelacionesRepository.findAll(pageable);
     }
 }

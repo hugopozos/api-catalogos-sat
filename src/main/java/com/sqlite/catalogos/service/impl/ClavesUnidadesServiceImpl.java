@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.ClavesUnidadesEntity;
 import com.sqlite.catalogos.persistence.repository.ClavesUnidadesRepository;
 import com.sqlite.catalogos.service.ClavesUnidadesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +22,7 @@ public class ClavesUnidadesServiceImpl implements ClavesUnidadesService {
         return optional.orElse(null);
     }
 
-    public List<ClavesUnidadesEntity> findAll() {
-        return clavesUnidadesRepository.findAll();
+    public Page<ClavesUnidadesEntity> findAll(Pageable pageable) {
+        return clavesUnidadesRepository.findAll(pageable);
     }
 }

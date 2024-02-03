@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.MonedasEntity;
 import com.sqlite.catalogos.service.MonedasService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,8 +26,8 @@ public class MonedasController {
     }
 
     @GetMapping("/all")
-    public List<MonedasEntity> findAll() {
-        return monedasService.findAll();
+    public Page<MonedasEntity> findAll(Pageable pageable) {
+        return monedasService.findAll(pageable);
     }
 
 }

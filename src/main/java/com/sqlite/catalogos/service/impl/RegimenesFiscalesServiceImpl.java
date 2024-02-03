@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.RegimenesFiscalesEntity;
 import com.sqlite.catalogos.persistence.repository.RegimenesFiscalesRepository;
 import com.sqlite.catalogos.service.RegimenesFiscalesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -18,8 +20,8 @@ public class RegimenesFiscalesServiceImpl implements RegimenesFiscalesService {
         return regimenesFiscalesRepository.findById(id).orElse(null);
     }
 
-    public List<RegimenesFiscalesEntity> findAll() {
-        return regimenesFiscalesRepository.findAll();
+    public Page<RegimenesFiscalesEntity> findAll(Pageable pageable) {
+        return regimenesFiscalesRepository.findAll(pageable);
     }
 
 }

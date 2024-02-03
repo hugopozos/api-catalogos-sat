@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.MunicipiosEntity;
 import com.sqlite.catalogos.service.MunicipiosService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +25,8 @@ public class MunicipiosController {
     }
 
     @GetMapping("/all")
-    public List<MunicipiosEntity> findAll() {
-        return municipiosService.findAll();
+    public Page<MunicipiosEntity> findAll(Pageable pageable) {
+        return municipiosService.findAll(pageable);
     }
 
 }

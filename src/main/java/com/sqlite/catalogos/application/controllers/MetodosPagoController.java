@@ -1,6 +1,8 @@
 package com.sqlite.catalogos.application.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,8 +26,8 @@ public class MetodosPagoController {
     }
 
     @GetMapping("/all")
-    public List<MetodosPagoEntity> findAll() {
-        return metodosPagoService.findAll();
+    public Page<MetodosPagoEntity> findAll(Pageable pageable) {
+        return metodosPagoService.findAll(pageable);
     }
 
 

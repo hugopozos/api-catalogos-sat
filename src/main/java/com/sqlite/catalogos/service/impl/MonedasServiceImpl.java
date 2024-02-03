@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.MonedasEntity;
 import com.sqlite.catalogos.persistence.repository.MonedasRepository;
 import com.sqlite.catalogos.service.MonedasService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class MonedasServiceImpl implements MonedasService {
         return monedasRepository.findById(id);
     }
 
-    public List<MonedasEntity> findAll() {
-        return monedasRepository.findAll();
+    public Page<MonedasEntity> findAll(Pageable pageable) {
+        return monedasRepository.findAll(pageable);
     }
 
 }

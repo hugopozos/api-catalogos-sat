@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.RegimenesFiscalesEntity;
 import com.sqlite.catalogos.service.RegimenesFiscalesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,8 +25,8 @@ public class RegimenesFiscalesController {
     }
 
     @GetMapping("/all")
-    public List<RegimenesFiscalesEntity> findAll() {
-        return regimenesFiscalesService.findAll();
+    public Page<RegimenesFiscalesEntity> findAll(Pageable pageable) {
+        return regimenesFiscalesService.findAll(pageable);
     }
 
 }

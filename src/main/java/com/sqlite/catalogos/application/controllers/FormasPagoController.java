@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.FormasPagoEntity;
 import com.sqlite.catalogos.service.FormasPagoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,8 +26,8 @@ public class FormasPagoController {
         }
 
         @GetMapping("/all")
-        public List<FormasPagoEntity> findAll() {
-            return formasPagoService.findAll();
+        public Page<FormasPagoEntity> findAll(Pageable pageable) {
+            return formasPagoService.findAll(pageable);
         }
 
 }

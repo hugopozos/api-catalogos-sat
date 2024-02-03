@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.MetodosPagoEntity;
 import com.sqlite.catalogos.persistence.repository.MetodosPagoRepository;
 import com.sqlite.catalogos.service.MetodosPagoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class MetodosPagoServiceImpl implements MetodosPagoService {
         return metodosPagoRepository.findById(id);
     }
 
-    public List<MetodosPagoEntity> findAll() {
-        return metodosPagoRepository.findAll();
+    public Page<MetodosPagoEntity> findAll(Pageable pageable) {
+        return metodosPagoRepository.findAll(pageable);
     }
 
 }

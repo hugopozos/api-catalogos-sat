@@ -4,6 +4,8 @@ import com.sqlite.catalogos.persistence.entity.UsosCfdiEntity;
 import com.sqlite.catalogos.persistence.repository.UsosCfdiRepository;
 import com.sqlite.catalogos.service.UsosCfdiService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,8 +21,8 @@ public class UsosCfdiServiceImpl implements UsosCfdiService {
         return usosCfdiRepository.findById(id);
     }
 
-    public List<UsosCfdiEntity> findAll() {
-        return usosCfdiRepository.findAll();
+    public Page<UsosCfdiEntity> findAll(Pageable pageable) {
+        return usosCfdiRepository.findAll(pageable);
     }
 
 }

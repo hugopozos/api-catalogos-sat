@@ -3,6 +3,8 @@ package com.sqlite.catalogos.application.controllers;
 import com.sqlite.catalogos.persistence.entity.CodigosPostalesEntity;
 import com.sqlite.catalogos.service.CodigosPostalesService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,7 @@ public class CodigosPostalesController {
     }
 
     @GetMapping("/all")
-    public List<CodigosPostalesEntity> findAll() {
-        return codigosPostalesService.findAll();
+    public Page<CodigosPostalesEntity> findAll(Pageable pageable) {
+        return codigosPostalesService.findAll(pageable);
     }
 }
