@@ -1,5 +1,6 @@
 package com.sqlite.catalogos.service.impl;
 
+import com.sqlite.catalogos.service.EstadosService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import com.sqlite.catalogos.persistence.entity.EstadosEntity;
@@ -10,7 +11,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class EstadosServiceImpl {
+public class EstadosServiceImpl implements EstadosService {
 
     private final EstadosRepository estadosRepository;
 
