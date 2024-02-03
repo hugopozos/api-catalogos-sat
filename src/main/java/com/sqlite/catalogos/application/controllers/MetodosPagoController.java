@@ -1,6 +1,7 @@
 package com.sqlite.catalogos.application.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sqlite.catalogos.persistence.entity.MetodosPagoEntity;
@@ -18,7 +19,7 @@ public class MetodosPagoController {
     private final MetodosPagoService metodosPagoService;
 
     @GetMapping("/{id}")
-    public Optional<MetodosPagoEntity> findById(String id) {
+    public Optional<MetodosPagoEntity> findById(@PathVariable String id) {
         return metodosPagoService.findById(id);
     }
 

@@ -1,6 +1,7 @@
 package com.sqlite.catalogos.application.controllers;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.sqlite.catalogos.persistence.entity.ObjetosImpuestosEntity;
@@ -17,7 +18,7 @@ public class ObjetosImpuestosController {
     private final ObjetosImpuestosService objetosImpuestosService;
 
     @GetMapping("/{id}")
-    public Optional<ObjetosImpuestosEntity> findById(String id) {
+    public Optional<ObjetosImpuestosEntity> findById(@PathVariable String id) {
         return objetosImpuestosService.findById(id);
     }
 
