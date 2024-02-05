@@ -41,12 +41,12 @@ Para descargar este repositorio ejecuta el siguiente comando en una terminal.
 
 #### Obtener por ID
 
-```http
+```
   GET /api/(tabla)/{id}
 ```
 #### Obtener todos
 
-```http
+```
   GET /api/(tabla)/all?page=1&size=10
 ```
 
@@ -55,12 +55,12 @@ Para descargar este repositorio ejecuta el siguiente comando en una terminal.
 
 #### Obtener por ID
 
-```http
+```
   GET /api/codigos-postales/{id}
 ```
 #### Obtener todos
 
-```http
+```
   GET /api/codigos-postales/all?page=1&size=10
 ```
 
