@@ -38,6 +38,10 @@ Para descargar este repositorio ejecuta el siguiente comando en una terminal.
 
 ## Referencia de la API
 
+Para obtener información sobre las tablas y sus campos se debe seguir la siguiente
+estructura de consulta donde (tabla) es el nombre de la tabla a consultar sustituyendo
+espacios por guiones y sin escribir cfdi_40_
+
 
 #### Obtener por ID
 
@@ -45,6 +49,7 @@ Para descargar este repositorio ejecuta el siguiente comando en una terminal.
   GET /api/(tabla)/{id}
 ```
 #### Obtener todos
+Para obtener todos los registros de las tablas de forma paginada se debe seguir la siguiente estructura.
 
 ```
   GET /api/(tabla)/all?page=1&size=10
